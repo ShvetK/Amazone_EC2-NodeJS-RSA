@@ -19,7 +19,7 @@ function task() {
     url: robURL,
     data: {
       banner: "B00917946",
-      ip: "34.201.161.218:5003",
+      ip: "52.86.72.48:5003",
     },
   }).then(function (res) {
     console.log(res.data);
