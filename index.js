@@ -3,7 +3,6 @@ const app = express();
 const fs = require("fs");
 const port = 5003;
 const axios = require("axios");
-
 const NodeRSA = require("node-rsa");
 
 app.use(express.json());
@@ -14,16 +13,20 @@ app.get("/", (req, res) => {
 
 const robURL = "http://44.202.179.158:8080/start";
 
-axios({
-  method: "post",
-  url: robURL,
-  data: {
-    banner: "B00917946",
-    ip: "34.201.161.218:5003",
-  },
-}).then(function (res) {
-  console.log(res.data);
-});
+function task() {
+  axios({
+    method: "post",
+    url: robURL,
+    data: {
+      banner: "B00917946",
+      ip: "34.201.161.218:5003",
+    },
+  }).then(function (res) {
+    console.log(res.data);
+  });
+}
+
+task();
 
 app.post("/decrypt", (req, res) => {
   const encryptedString = req.body.message;
