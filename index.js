@@ -46,7 +46,7 @@ app.post("/encrypt", (req, res) => {
   const rsa = new NodeRSA(publicKey);
   const encrypted = rsa.encrypt(simpleString, "base64");
   res.status(200).json({
-    data: encrypted,
+    response: encrypted,
   });
 });
 
