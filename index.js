@@ -31,7 +31,6 @@ task();
 app.post("/decrypt", (req, res) => {
   const encryptedString = req.body.message;
   const privateKey = fs.readFileSync("private_key.txt", "utf8");
-  console.log(privateKey);
   const rsa = new NodeRSA(privateKey);
   const decrypted = rsa.decrypt(encryptedString, "utf8");
   res.status(200).json({
@@ -42,7 +41,6 @@ app.post("/decrypt", (req, res) => {
 app.post("/encrypt", (req, res) => {
   const simpleString = req.body.message;
   const publicKey = fs.readFileSync("public_key.txt", "utf8");
-  console.log(publicKey);
   const rsa = new NodeRSA(publicKey);
   const encrypted = rsa.encrypt(simpleString, "base64");
   res.status(200).json({
